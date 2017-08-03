@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>空气质量选择柱状图表示</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css" >
+	<script type="text/javascript" src="./js/all.js"></script>
+</head>
+<body>
+	<fieldset class="fieldset">
+		<legend>请选择日期粒度:</legend>
+		<label>日<input name="gra-time" value="day" type="radio" ></label>
+		<label>周<input name="gra-time" value="week" type="radio"></label>
+		<label>月<input name="gra-time" value="month" type="radio" checked="true"></label>
+	</fieldset>
+	
+	<fieldset class="fieldset">
+		<legend>请选择要查看的城市：</legend>
+		<select id="city-select">
+			<option selected="true">北京</option>
+			<option>上海</option>
+			<option >广州</option>
+			<option>深圳</option>
+			<option>成都</option>
+			<option>西安</option>	
+			<option>福州</option>
+			<option>厦门</option>
+			<option>沈阳</option>
+		</select>
+	</fieldset>
+
+	<div class="aqi-chart-wrap">
+		<div id="histogram-wrap"></div>
+	</div>
+
+</body>
+</html>

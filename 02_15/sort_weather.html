@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>进阶版排序空气质量</title>
+	<style type="text/css">
+		li{
+			margin-left: 30px;
+		}
+		#sort-btn{
+			margin-left: 40px;
+			width: 60px;
+		}
+	</style>
+</head>
+<body>
+<ul id="source-list">空气质量列表：</br>
+	<li>北京：<b>90</b></li>
+	<li>上海：<b>70</b></li>
+	<li>天津：<b>80</b></li>
+	<li>广州：<b>50</b></li>
+	<li>深圳：<b>40</b></li>
+	<li>福州：<b>32</b></li>
+	<li>成都：<b>90</b></li>
+</ul>
+<button id="sort-btn">排序</button>
+<ul id="resort-list">
+	
+</ul>
+
+<script type="text/javascript">
+	/*	1.getData()方法，
+		读取sorce列表中的内容
+		并存入数组返回
+	*/
+	function getData(){
+		var mySourceList=document.getElementById("source-list"); //mySourceList获得的ul元素节点
+		var myList=mySourceList.getElementsByTagName("li"); //通过getElementsByTagName取得多个li元素，可以像数组一样操作
+
+		// 声明存储city及num的二维数组,二维数组声明分两步
+		var myArray=new Array();   //先声明一维 
+		for(var i=0;i<myList.length;i++){
+			// 通过innerHTML获取或替换元素内容,例如li标签的内容为字符串“北京：<b>90</b>”,再对字符串作截取.substring(开始位置，结束位置+1)，substr(开始位置，截取长度)
+			myArray[i]=new Array(); //再声明二维
+			myArray[i][0]=myList[i].innerHTML.substring(0,2);
+			// 将字符串转换为数字，Number(),parseInt(),parseFloat()
+			myArray[i][1]=parseInt(myList[i].innerHTML.substring(6,8));		
+		}
+
+		return myArray;
+	}
+
+	/*	2.sortAqiData()方法
+		按空气质量对myArray进行从小到大的排序
+		返回排序后的数组
+		myArray[["北京"，90]
+		]
+	*/
+	function sortAqiData(myArray){
+		// 比较其空气质量的高低
+		return myArray.sort(function(element1,element2){
+			return element1[1]-element2[1];  //升序，a-b
+		});
+	}
+
+	/*	3.render()方法
+		将排好序的城市及空气质量指数，输出显示到id为resort的列表中
+	*/
+	function render(sortArray){
+		var str="排序结果：</br>";
+		var pos=[1,2,3,4,5,6,7];
+		// 注意forEach()其中的大写，
+		sortArray.forEach(function(element,index){
+			str+="<li>第"+pos[index]+"名： "+element[0]+" "+element[1]+"</li>";
+		});
+		document.getElementById("resort-list").innerHTML=str;
+	}
+
+	/*	4.btnHandle()方法
+		点击按钮后触发
+	*/
+	function btnHandle(){
+		// 获取由列表中元素生成的数组
+		var myArray=getData();
+		// 对数组排序
+		var sortArray=sortAqiData(myArray);
+		// 将排序后的数组显示在界面上
+		render(sortArray);
+	}
+
+	/*	5.init()方法
+		初始函数入口
+		为按钮绑定点击事件，点击时触发btnHandle()方法
+	*/
+	function init(){
+		document.getElementById("sort-btn").onclick=btnHandle;
+	}
+
+	// 从init()函数进入
+	init();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>筛选空气质量</title>
+</head>
+<body>
+	<ul id="aqi-list">空气质量为优的城市有：</br>
+		
+	</ul>	
+
+	<script type="text/javascript">
+
+		// 定义天气数组 ，包含城市名称和天气指数的二维数组
+		var aqiData=[["北京",90],['上海',50],["福州",10],["广州",50],["成都",90],["西安",100]];
+		var myul=document.getElementById("aqi-list");
+
+		// 1、遍历数组，判断天气质量指数
+		// 2、对于符合判断条件的数组项，创建li元素，将相应数组项写入value值中
+		for(var i=0;i<aqiData.length;i++){
+			// 对于二维数组，比较每一维城市的空气指数
+			if(aqiData[i][1]>=60){
+				// 创建li元素节点，并为其写值，再将其插入到ul节点下
+				var myli=document.createElement("li");
+				// 通过setAttribute函数为其设置属性。value设置属性值，但不会显示在浏览器上。
+				myli.setAttribute("value",aqiData[i][0]+" : "+aqiData[i][1]);
+				// 通过innerHTML在浏览器上写入值
+				myli.innerHTML=aqiData[i][0]+" : "+aqiData[i][1];
+				myul.appendChild(myli);
+			}
+		}
+</script>
+</body>
+</html>

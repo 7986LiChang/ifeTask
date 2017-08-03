@@ -1,0 +1,16 @@
+.fieldset{
+/*	width: 50%;*/
+	margin:20px;
+}
+
+#histogram-wrap{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+#histogram-wrap div{
+	margin-right: 2px;
+} 

@@ -1,0 +1,339 @@
+/*reset清除不同浏览器原始差异*/
+/*css reset code */
+
+/****  文字大小初始化,使1em=10px *****/
+body {
+	font-size: 62.5%;
+}
+
+/* for IE/Win */
+html>body {
+	font-size: 10px;
+}
+
+/* for everything else */
+
+/*字体边框等初始化*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+	padding: 0;
+	margin: 0;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+fieldset, img {
+	border: 0;
+}
+
+/*img是内联元素，也是替换元素。可以设置宽高，但无法设置margin*/
+img {
+	display: block;
+}
+address, caption, cite, code, dfn, th, var {
+	font-weight: normal;
+	font-style: normal;
+}
+ol, ul {
+	list-style: none;
+}
+caption, th {
+	text-align: left;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+	font-size: 100%;
+}
+q:before, q:after {
+	content: '';
+}
+abbr, acronym {
+	border: 0;
+}
+a {
+	text-decoration: none;
+}
+html {
+	background: white;
+}
+/* 完成初始化，消除各浏览器差异 */
+
+.header{
+	height: 50px;
+	background-color: black;
+}
+
+.header img{
+	width: 180px;
+	display: inline;
+	position: relative;
+	top: -70px;
+	left: 20px;
+}
+.nav{	
+	/*将导航列表垂直居中，针对单行元素，设置行高与父元素高度相同*/
+	line-height: 50px;
+	float: right;
+	margin-right: 20px;
+
+}
+
+.nav li{
+	float: left;
+	margin-right: 20px;
+}
+.nav a{
+	font-family: Helvetica, Arial black,sans-serif;
+	font-size: 1.6em;
+	color: #AAA8A8;
+}
+.nav a:hover{
+	color: white;
+	font-weight: bold;
+}
+.main{
+	background-color: #ccc;
+	padding: 20px;
+}
+
+.page-sidebar{
+	margin:10px;
+}
+.page-sidebar li{
+	font-family: Helvetica,Arial black,sans-serif;
+	font-size: 2em;
+	font-weight: bold;
+	padding: 10px;
+	padding-left: 15px;
+	background-image: url(../images/14.png);
+	background-repeat: no-repeat;
+	background-position:2px;
+}
+
+.right{
+	width:358px;
+	/*height: 298px;*/
+	float: right;
+	background-color: white;
+	border:1px solid #ccc;
+	 /*给div添加box-shadow   
+	 box-shadow: h-shadow v-shadow blur spread color inset;*/
+	box-shadow: 2px 2px #aaa;
+}
+.subform{
+	font-size: 1.5em;  
+}
+
+.subform p{
+	margin: 10px; 
+}
+.subform .lable{
+	width: 120px;
+	float: left;
+	margin-right: 10px;
+	text-align: right;
+	font-weight: bold;
+}
+
+.subform .tip{
+	margin-left: 130px;
+	color: #999;
+	font-size: .9em;
+	margin-bottom: 10px;
+}
+#emailaddress,#password,#passwordagain,#comments{
+	width: 180px;
+}
+/*鼠标指向文本框时锁定颜色*/
+#emailaddress:focus,
+#password:focus,
+#passwordagain:focus,
+#comments:focus
+{
+	background-color: #eee;
+}
+.submit{
+	/*与父元素宽度相同*/
+	width:300px;
+/*	margin-bottom:5px;
+	margin-left: 30px;*/
+	margin-left: 19px;
+	height: 40px;
+	font-size: 1.2em;
+	font-weight: bold;
+	color: white;
+	background-color: #3355D0;
+	border-radius: 15px;
+
+}
+
+.left{
+	border:1px solid #ccc;
+	margin-right: 380px;
+}
+
+.part1{
+	background-color: white;
+	padding: 20px;
+	border:1px solid #ccc;
+	box-shadow: 2px 2px #aaa;
+	margin-bottom: 10px;
+}
+
+.left h1{
+	font-family: Arial black, Arial, sans-serif;
+	font-size: 2em;
+	font-weight: bold;
+	/*margin:10px 0;*/
+}
+.left h2{
+	font-family: Arial black,Arial,sans-serif;
+	font-size: 1.5em;
+	font-weight: bold;
+	margin: 5px 0;
+	color: #656464;
+}
+.left p{
+	font-family: Arial black,Arial,sans-serif;
+	font-size: 1.3em;
+	margin-bottom: 5px;
+	color: #878686;
+}
+
+.left .p1{
+	font-family: Helvetica,Arial black,sans-serif;
+	font-size: 1.5em;
+	/*右行高控制行间距，默认为120%*/
+	line-height: 150%;
+	color: #303030;
+	text-indent: 2em;
+}
+.p1 a{
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+.part2{
+	background-color: white;
+	padding: 20px;
+	border:1px solid #ccc;
+	box-shadow: 2px 2px #aaa;
+	margin-bottom: 10px;
+}
+.part2 img{
+	width: 200px;
+	height: 280px;
+	margin-bottom: 10px
+}
+
+.list{
+	font-family: Helvetica, Arial black, sans-serif;
+	font-size: 1.35em;
+	color: #303030;
+	margin-left: 20px;
+	margin-top: 10px;
+}
+.list li{
+	/*通过给列表项添加下边距，控制列表行间距*/
+	margin-bottom: 8px;
+}
+.part3{
+	background-color: white;
+	padding: 20px;
+	border:1px solid #ccc;
+	box-shadow: 2px 2px #aaa;
+	margin-bottom: 10px;
+}
+.part3_gallery{
+	margin-left: 20px;
+}
+.gallery{
+	float: left;
+/*	width: 222px;
+	height: 193px;*/
+	padding: 10px;
+	border:1px solid #eee;
+	background-color: #EAECEC;
+	margin: 0 20px 20px 0;
+	box-shadow: 2px 2px #D3D1D1;
+}
+.gallery p{
+	font-family: Helvetica, Arial black, sans-serif;
+	font-size: 1.35em;
+	font-weight: bold;
+	color: #303030;
+	text-align: center;
+	margin-top: 0;
+}
+.gallery img{
+	width: 200px;
+	height: 180px;
+	/*max-width:200px;*/
+	/*max-height: 150px;*/
+}
+.part4{
+	background-color: white;
+	padding: 20px;
+	border:1px solid #ccc;
+	box-shadow: 2px 2px #aaa;
+}
+
+.part4 .list{
+	list-style-type: decimal;
+	/*margin-top: 20px;*/
+	padding-left: 20px;
+}
+
+table{
+	/*border:1px;*/
+	width: 100%;
+	/*border-collapse: separate;*/
+	/*border-spacing: 1px;*/
+
+}
+table a{
+	text-decoration: underline;
+	font-weight: bold;
+}
+th{
+	font-family: Arial black,Arial,sans-serif;
+	font-size: 1.6em;
+	font-weight: bold;
+	color: white;
+	background-color: #464646;
+	padding:5px 60px 5px 8px;
+	border: 1px solid #E7E6E6;
+}
+
+td{
+	font-family: Arial black,Arial,sans-serif;
+	font-size: 1.4em;
+	padding-left: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border: 1px solid #E7E6E6;
+}
+
+.foot td{
+	font-family: Arial black,Arial,sans-serif;
+	font-size: 1.4em;
+	background-color: #BFBDBD;
+	border: 0;
+}
+
+.footer{
+	/*内部文字只有一行，将height和文字行高line-height设置一样即可*/
+	height: 50px;
+	line-height: 50px;
+	background-color: black;
+	position: relative;
+	bottom: 0;
+	color: white;
+	font-weight: bold;
+	font-size: 1.8em;
+	text-align: center;
+	/*padding: 10px 0;*/
+}
+.clear{
+	clear: both;
+}

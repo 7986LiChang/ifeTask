@@ -1,0 +1,31 @@
+var aqiData = [
+        ["北京", 90],
+        ["上海", 50],
+        ["福州", 10],
+        ["广州", 50],
+        ["成都", 90],
+        ["西安", 100]
+    ];
+
+    (function () {
+        /*
+         在注释下方编写代码
+         遍历读取aqiData中各个城市的数据
+         将空气质量指数大于60的城市显示到aqi-list的列表中
+         */
+        var str="";
+        var pos=["一","二","三","四","五","六"];
+        // 通过filter(function callback(element,index,array))方法，使用指定回调函数测试所有元素，返回所有通过测试的元素的新数组，value即为当前元素，即二维数组的一维项
+        var outputData=aqiData.filter(function(value){
+            return value[1]>60;
+        }).sort(function(a,b){
+            return b[1]-a[1];
+        });
+        // output为筛选出并排序后的城市列表,value为当前元素，index为数组下标
+        outputData.forEach(function(value,index){
+            // str即为 新建li元素 的html代码
+            str+="<li>第"+pos[index]+"名："+value[0]+"，"+value[1]+"</li>";
+        });
+        // 通过innerHTML属性写入str代表的html代码，从而将li元素生成并显示在前台界面上
+        document.getElementById("aqi-list").innerHTML=str;
+    })();

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<title>零基础JavaScript编码</title>
+	</head>
+	<body>
+		<label>请输入北京今天的空气质量：<input id="aqi-input" type="text"></label>
+		<button id="button" value="请确认">确认填写</button>
+
+		<div>您输入的值是：<span id="aqi-display">尚无录入</span></div>
+
+		<script type="text/javascript">
+		(function(){
+			function confirm(){
+			//获取文本输入框和显示标签对象
+			var myinput=document.getElementById("aqi-input");
+			var mydisplay=document.getElementById("aqi-display");
+
+			//获取文本输入框的值，object.value,通过innerHTML显示在span标签中
+			mydisplay.innerHTML=myinput.value;
+		}
+			document.getElementById("button").addEventListener("click",confirm,false);
+		}
+			)();
+		
+		
+		</script>
+
+	</body>
+	</html>	

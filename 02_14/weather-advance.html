@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>排名版筛选空气质量</title>
+
+</head>
+<body>
+	<h3>污染城市列表</h3>
+	<!-- js代码中要获取ul元素，是通过id属性，不应设置class -->
+	<ul id="aqi-list">
+		
+	</ul>
+<script type="text/javascript" >
+
+// 总结：1.对于js中要使用的元素，html代码中应为其设置id属性，而非class属性；2.<script></script>js代码置于body最后，其中直接写代码，或通过src属性引入js文件
+
+	// 1、对二维数组aqiData，使用filter()方法筛选出满足条件的数组
+	// 2、对筛选数组排序
+	// 3、遍历排序后的数组，通过写入HTML代码在前台展示效果
+	var aqiData = [
+	  ["北京", 90],
+	  ["上海", 50],
+	  ["福州", 10],
+	  ["广州", 50],
+	  ["成都", 90],
+	  ["西安", 100]
+	];
+
+	(function () {
+	var pos = [1,2,3,4,5,6] ;
+	var str="";
+	// var myul=document.getElementById("aqi-list");
+		// filter()方法执行回调函数，返回新的数组，其中元素是所有回调函数执行返回true时的原数组元素
+		var airPolluteArray=aqiData.filter(function(element){
+			return (element[1]>60);
+		});
+		// 通过sort()方法执行回调函数，返回排序后的污染城市列表
+		var sortAirPollute=airPolluteArray.sort(function(element1,element2){
+			return element2[1]-element1[1];
+		});
+
+		// var sortAirPollute=aqiData.filter(function(element){
+		// 	return element[1]>60;
+		// }).sort(function(element1,element2){
+		// 	return element2[1]-element1[1];
+		// });
+		// 遍历sortAirPollte[]数组，将其添加到html页面中.通过forEach()方法执行回调函数。回调函数参数可以包括：当前元素、当前元素的索引、当前的数组对象
+		sortAirPollute.forEach(function(element,index){
+			str+="<li>"+"第"+pos[index]+"名 : "+element[0]+" "+element[1]+"</li>";
+		});
+		// 向ul标签下添加str表示的html代码
+		document.getElementById("aqi-list").innerHTML=str;
+		})();
+</script>
+</body>
+</html>
